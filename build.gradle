@@ -1,6 +1,7 @@
-plugins {
-    id 'application' 
-}
+apply plugin : "application"
+apply plugin : "jacoco"
+
+mainClassName = 'ohtu.ohtuvarasto.Main'
 
 repositories {
     jcenter() 
@@ -12,6 +13,10 @@ dependencies {
     implementation 'com.google.guava:guava:29.0-jre' 
 }
 
-application {
-    mainClass = 'ohtu.ohtuvarasto.Main'
+jar {
+    manifest {
+        attributes 'Main-Class': 'ohtu.ohtuvarasto.Main'
+    }
 }
+
+

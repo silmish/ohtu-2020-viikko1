@@ -14,6 +14,10 @@ public class VarastoTest {
 
     Varasto varasto;
     double vertailuTarkkuus = 0.0001;
+    
+    private double tilavuus;  // paljonko varastoon mahtuu,  > 0
+    private double saldo;     // paljonko varastossa on nyt, >= 0
+
 
     @Before
     public void setUp() {
@@ -63,6 +67,37 @@ public class VarastoTest {
 
         // varastossa pitäisi olla tilaa 10 - 8 + 2 eli 4
         assertEquals(4, varasto.paljonkoMahtuu(), vertailuTarkkuus);
+    }
+
+    @Test
+    public void kayttoKelvotonVarastoTesti() {
+        Varasto tilavuus = new Varasto(0.0, 0.0);
+
+        double varasto2 = tilavuus.getTilavuus();
+
+        assertEquals(0, varasto2, vertailuTarkkuus);
+
+    }
+
+    @Test
+    public void testaajotain() {
+        
+        Varasto tilavuus = new Varasto(10.0, 0.0);
+        
+        assertEquals(tilavuus.getTilavuus(), varasto.getTilavuus(), vertailuTarkkuus);
+
+    }
+    
+    @Test
+    public void testaajotainmuuta() {
+        
+        Varasto tilavuus = new Varasto(10.0, 0.0);
+        
+        this.tilavuus = tilavuus.getTilavuus();
+        this.saldo = tilavuus.getSaldo();
+        
+        assertEquals(0, tilavuus.getSaldo(), vertailuTarkkuus);
+
     }
 
 }
