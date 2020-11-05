@@ -1,5 +1,8 @@
-apply plugin : "application"
-apply plugin : "jacoco"
+plugins {
+    id 'application'
+    id 'jacoco'
+    id 'checkstyle'
+}
 
 mainClassName = 'paaohjelma.Main'
 
