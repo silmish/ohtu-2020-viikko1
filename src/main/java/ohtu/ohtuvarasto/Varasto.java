@@ -68,6 +68,7 @@ public class Varasto {
             saldo = 0.0;               // ja tyhjäksi menee
             return kaikkiMitaVoidaan;  // poistutaan saman tien
         }
+        
         // jos tänne päästään, kaikki pyydetty voidaan antaa
         saldo = saldo - maara;  // vähennetään annettava saldosta
         return maara;
